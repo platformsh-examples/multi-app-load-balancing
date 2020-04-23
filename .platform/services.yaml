@@ -1,0 +1,24 @@
+# The services of the project.
+#
+# Each service listed will be deployed
+# to power your Platform.sh project.
+
+lb1:
+    type: varnish:6.0
+    relationships:
+        server1: 'app:http'
+        server2: 'applb:http'
+    configuration:
+        vcl: !include
+            type: string
+            path: config.vcl
+
+lb2:
+    type: varnish:6.0
+    relationships:
+        server1: 'app2:http'
+        server2: 'app2lb:http'
+    configuration:
+        vcl: !include
+            type: string
+            path: config.vcl
