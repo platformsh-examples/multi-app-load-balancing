@@ -24,20 +24,20 @@
 
 -
     <<: *appdef
-       name: app2
-       web:
-        commands:
-            start: |
-                cp target/dependency/webapp-runner.jar server/webapp-runner.jar
-                cp target/tomcat.war server/tomcat.war
-                cd server && java -jar -Xmx$(jq .info.limits.memory /run/config.json)m webapp-runner.jar --port $PORT  --path app2 tomcat.war
+    name: app2
+    web:
+      commands:
+        start: |
+          cp target/dependency/webapp-runner.jar server/webapp-runner.jar
+          cp target/tomcat.war server/tomcat.war
+          cd server && java -jar -Xmx$(jq .info.limits.memory /run/config.json)m webapp-runner.jar --port $PORT  --path app2 tomcat.war
 
 -
     <<: *appdef
-       name: app2lb
-       web:
-        commands:
-            start: |
-                cp target/dependency/webapp-runner.jar server/webapp-runner.jar
-                cp target/tomcat.war server/tomcat.war
-                cd server && java -jar -Xmx$(jq .info.limits.memory /run/config.json)m webapp-runner.jar --port $PORT  --path app2 tomcat.war
+    name: app2lb
+    web:
+      commands:
+        start: |
+          cp target/dependency/webapp-runner.jar server/webapp-runner.jar
+          cp target/tomcat.war server/tomcat.war
+          cd server && java -jar -Xmx$(jq .info.limits.memory /run/config.json)m webapp-runner.jar --port $PORT  --path app2 tomcat.war
