@@ -36,13 +36,5 @@
               cd server && java -jar -Xmx$(jq .info.limits.memory /run/config.json)m webapp-runner.jar --port $PORT  --path app2 tomcat.war
 
 -
-    <<: *appdef
+    <<: *app2def
     name: app2lb
-    source:
-        root: app2
-    web:
-      commands:
-        start: |
-          cp target/dependency/webapp-runner.jar server/webapp-runner.jar
-          cp target/tomcat.war server/tomcat.war
-          cd server && java -jar -Xmx$(jq .info.limits.memory /run/config.json)m webapp-runner.jar --port $PORT  --path app2 tomcat.war
