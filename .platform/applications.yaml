@@ -17,7 +17,6 @@
                 cp target/tomcat.war server/tomcat.war
                 cd server && java -jar -Xmx$(jq .info.limits.memory /run/config.json)m -XX:+ExitOnOutOfMemoryError webapp-runner.jar --port $PORT tomcat.war
 
-
 -
    <<: *appdef
    name: applb
