@@ -24,7 +24,7 @@
 
 -
     &app2def
-    <<: *appdef
+        <<: *appdef
         name: app2
         source:
             root: app2
