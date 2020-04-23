@@ -3,7 +3,7 @@
     type: 'java:8'
     disk: 1024
     source:
-        root: /
+        root: app
     hooks:
         build: mvn clean install
     mounts:
@@ -25,6 +25,8 @@
 -
     <<: *appdef
     name: app2
+    source:
+        root: app2
     web:
       commands:
         start: |
@@ -35,6 +37,8 @@
 -
     <<: *appdef
     name: app2lb
+    source:
+        root: app2
     web:
       commands:
         start: |
